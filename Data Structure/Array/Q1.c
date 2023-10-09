@@ -6,6 +6,12 @@
 
 void Print3Largest(int arr[],int n)
 {
+    /* There should be atleast three elements */
+    if (n < 3) { 
+        printf(" Invalid Input "); 
+        return;
+    }
+
     int first,second,third;
     first=second=third=INT_MIN;
     for (int i = 0 ; i < n ; i++){
@@ -18,7 +24,7 @@ void Print3Largest(int arr[],int n)
             third  = second;
             second = arr[i];
         }
-        else if ( arr > third ){
+        else if ( arr[i] > third ){
             third = arr[i];
         }
     }
