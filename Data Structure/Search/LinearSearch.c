@@ -18,7 +18,9 @@ void LinearSearch(int arr[],int size, int element )
 
 int main()
 {
-    int arr[100]={4,7,5,22,466,33,556,732,22,1};
-    LinearSearch(arr, 10, 1);
+    int arr[]={4,7,5,22,466,33,556,732,22,1};
+    int size = sizeof(arr)/sizeof(int);
+    int element=22;
+    LinearSearch(arr, size, element);
     return 0;
 }
