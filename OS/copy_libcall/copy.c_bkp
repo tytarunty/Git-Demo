@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+int main()
+{
+char c;
+FILE *in,*out;
+
+	in=fopen("filew.in","r");
+        if(in==NULL)
+	{
+	 printf("Cannot open file %s\n","file.in");
+	 exit(1);
+	}
+
+
+	out=fopen("file.xml","w");
+	if(out==NULL)
+        {
+         printf("Cannot open file %s\n","file.out");
+         exit(0);
+        }
+       
+
+	c=fgetc(in);
+
+ while(c != EOF)
+    {
+     fputc(c,out);
+     c=fgetc(in);
+    }
+
+  printf("file copied complete\n");
+  return 0;
+	
+}

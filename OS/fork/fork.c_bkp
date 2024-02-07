@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<unistd.h>
+
+int main()
+{
+pid_t id1,id2,id3;
+int i=0;
+id1 = fork();
+id2 = fork();
+id3= fork();
+	if(id1==0)
+	{
+	i++;
+	printf("I am Child1 and i=%d\n",i);
+	}
+	
+	else
+	printf("I am parent1\n");
+
+		if(id2==0)
+		{
+		i++;
+		printf("I am Child2 and i=%d\n",i);
+		}
+	else
+	printf("I am parent2\n");
+	
+	if(id3==0)
+		{
+		i++;
+		printf("I am Child3 and i=%d\n",i);
+		}
+	else
+	printf("I am parent3\n");
+
+
+return 0;
+}

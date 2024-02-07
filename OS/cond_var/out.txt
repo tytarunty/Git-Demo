@@ -1,0 +1,6 @@
+ES : Grab mutex , event : 0
+ES : Event is set
+ES : Unlock mutex
+WE : Grab mutex, event: 1
+WE : condvar condition satisfied
+WE : Unlock mutex
