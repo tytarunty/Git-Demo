@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<malloc.h>
+#include<stdlib.h>
 
 struct node{
     int data;
@@ -12,7 +12,7 @@ void PreOrderTraversal(struct node *root);
 void PostOrderTraversal(struct node *root);
 void InOrderTraversal(struct node *root);
 
-void main()
+int main()
 {
     struct node *p=CreateNode(4);
     struct node *p1=CreateNode(1);
@@ -35,6 +35,7 @@ void main()
         PostOrderTraversal(p);
         printf("\nIn Order Traversal   : ");
         InOrderTraversal(p);
+        printf("\n");
 }
 
 struct node* CreateNode(int data){
