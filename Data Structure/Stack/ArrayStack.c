@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//Size of stack
 #define MAX 10
 
 void Print(int stack[],int top)
