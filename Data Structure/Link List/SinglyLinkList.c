@@ -90,10 +90,39 @@ void AddAfter(struct node *start,int data,int item)
     return;
 }
 
-// struct node * AddBefore(struct node *start,int data,int item)
-// {
+struct node * AddBefore(struct node *start,int data,int item)
+{
+    struct node *temp=start;
+    
+    if (start == NULL)  // if link list is empty
+    {
+        printf("Empty Link List\n");
+        return start;
+    }
 
-// }
+    if (start->data == item) // if data to be inserted before first node
+    {
+        struct node *p= (struct node *) malloc(sizeof(struct node));
+        p->data = data;
+        p->next = start;
+        return p;
+    }
+
+    while ( temp->next != NULL)
+    {
+        if (temp->next->data == item)
+        {
+            struct node *p= (struct node *) malloc(sizeof(struct node));
+            p->data = data;
+            p->next = temp->next;
+            temp->next = p;
+            return start;
+        }
+        temp = temp->next;
+    }
+    printf("%d element not found in Link List",item);
+    return start;
+}
 
 struct node * Reverse(struct node *start)
 {
@@ -116,7 +145,7 @@ int main()
 
     while (1)
     {
-        printf("1. Print Link List\n");
+        printf("\n1. Print Link List\n");
         printf("2. Insert from begining\n");
         printf("3. Insert at end\n");
         printf("4. Insert at index\n");
@@ -155,13 +184,13 @@ int main()
             scanf("%d",&item);
             AddAfter(start,data,item);
             break;
-        // case 6:
-        //     printf("Enter Data : ");
-        //     scanf("%d",&data);
-        //     printf("Enter Item before which node to be inserted : ");
-        //     scanf("%d",&item);
-        //     start = AddBefore(start,data,item);
-        //     break; 
+        case 6:
+            printf("Enter Data : ");
+            scanf("%d",&data);
+            printf("Enter Item before which node to be inserted : ");
+            scanf("%d",&item);
+            start = AddBefore(start,data,item);
+            break; 
         case 7:
             start = Reverse(start);  
             break;         
