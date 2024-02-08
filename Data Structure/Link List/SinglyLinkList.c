@@ -32,43 +32,42 @@ void PrintLinkList(struct node *start)
 struct node* InsertBegining(struct node *start, int data)
 {
     // time complexity : O(1)
-    struct node *temp=(struct node *) malloc(sizeof(struct node));
-    temp->data = data;
-    temp->link = start;
-    return temp;
+    struct node *p=(struct node *) malloc(sizeof(struct node));
+    p->data = data;
+    p->link = start;
+    return p;
 }
 
 struct node * InsertEnd(struct node *start,int data)
 {
     // time complexity : O(n)
-    struct node *last,*temp=(struct node *)malloc(sizeof(struct node)),*p=start;
-    printf("temp->link : %p ",temp->link);
-    temp->data=data;
-    temp->link=NULL;
-    if (isNull(p))
+    struct node *p=(struct node *)malloc(sizeof(struct node)),*last=start;
+    p->data=data;
+    p->link=NULL;
+    if (isNull(last))
     {
-        return temp;
+        return p;
     }
-    while(p->link != NULL)
+    while(last->link != NULL)
     {
-        p=p->link;
+        last=last->link;
     }
-    p->link=temp;
+    last->link=p;
     return start;
 }
 
 struct node * InsertAtIndex(struct node *start,int data,int index)
 {
-    struct node *temp=(struct node *)malloc(sizeof(struct node)),*p=start;
-    temp->data = data;
+    struct node *p=(struct node *)malloc(sizeof(struct node)),*temp=start;
+    p->data = data;
     int i=0;
     while( i < index )
     {
-        p=p->link;
+        temp=temp->link;
         i++;
     }
-    temp->link = p->link;
-    p->link = temp;
+    p->link = temp->link;
+    temp->link = p;
     return start;
 }
 
@@ -78,10 +77,10 @@ void AddAfter(struct node *start,int data,int item)
     {
         if (start->data == item)
         {
-            struct node *temp = (struct node *) malloc(sizeof(struct node));
-            temp->data = data;
-            temp->link = start->link;
-            start->link = temp;
+            struct node *p = (struct node *) malloc(sizeof(struct node));
+            p->data = data;
+            p->link = start->link;
+            start->link = p;
             return;
         }
     start = start->link;
