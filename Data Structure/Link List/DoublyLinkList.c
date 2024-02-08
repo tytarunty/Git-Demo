@@ -126,6 +126,46 @@ struct node * InsertBefore(struct node *start, int data, int item)
     return start;
 }
 
+struct node *DelBegining(struct node *start)
+{
+    if (start == NULL)
+    {
+        printf("Empty link list\n");
+        return start;
+    }
+
+    struct node *temp=start;
+    if (temp->next != NULL)
+        temp->next->prev = NULL;
+    temp = temp->next;
+    free(start);
+    return temp;
+}
+
+struct node *DelEnd(struct node *start)
+{
+    if (start == NULL)
+    {
+        printf("Empty link list\n");
+        return start;
+    }
+
+    struct node *temp=start;
+    if(temp->next == NULL)
+    {
+        free(temp);
+        return NULL;
+    }
+
+    while( temp->next != NULL)
+        temp = temp->next;
+    
+    temp->prev->next = NULL;
+    free(temp);
+    return start;
+    
+}
+
 int main()
 {
     struct node *start = NULL;
@@ -137,6 +177,8 @@ int main()
         printf("3. Insert at end\n");
         printf("4. Add after\n");
         printf("5. Insert before\n");
+        printf("6. Delete from begining\n");
+        printf("7. Delete from end\n");
         printf("10. Exit\n");
         printf("Enter your choice : ");
         scanf("%d",&choice);
@@ -170,6 +212,12 @@ int main()
             printf("Enter element before which to be inserted : ");
             scanf("%d",&item);
             start = InsertBefore(start,data,item);
+            break;
+        case 6:
+            start = DelBegining(start);
+            break;
+        case 7:
+            start = DelEnd(start);
             break;
         case 10:
             exit(1);
