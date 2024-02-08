@@ -66,15 +66,40 @@ struct node * InsertEnd(struct node *start,int data)
     return start;
 }
 
+void InsertAfter(struct node *start, int data, int item)
+{
+    if ( start == NULL )
+    {
+        printf("Empty Link List\n");
+        return;
+    }
+
+    while (start != NULL)
+    {
+        if (start->data == item)
+        {
+            struct node *p = (struct node *) malloc(sizeof(struct node));
+            p->data = data;
+            p->next = start->next;
+            start->next = p;
+            printf("%d inserted after %d in link list\n",data,item);
+            return;
+        }
+        start = start->next;
+    }
+    printf("%d element not found in linked list\n",item);
+}
+
 int main()
 {
     struct node *start = NULL;
-    int choice,data;
+    int choice,data,item;
     while(1)
     {
         printf("\n1. Display\n");
         printf("2. Insert from begining\n");
         printf("3. Insert at end\n");
+        printf("4. Add after\n");
 
         printf("10. Exit\n");
         printf("Enter your choice : ");
@@ -87,14 +112,21 @@ int main()
             Display(start);
             break;
         case 2:
-            printf("Enter data to be inserted :");
+            printf("Enter element to be inserted :");
             scanf("%d",&data);
             start = InsertBeg(start,data);
             break;
         case 3:
-            printf("Enter data to be inserted :");
+            printf("Enter element to be inserted :");
             scanf("%d",&data);
             start = InsertEnd(start,data);
+            break;
+        case 4:
+            printf("Enter element to be entered : ");
+            scanf("%d",&data);
+            printf("Enter element after which to be inserted : ");
+            scanf("%d",&item);
+            InsertAfter(start,data,item);
             break;
         case 10:
             exit(1);

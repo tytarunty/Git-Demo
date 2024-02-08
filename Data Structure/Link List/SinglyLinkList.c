@@ -81,6 +81,7 @@ void AddAfter(struct node *start,int data,int item)
             p->data = data;
             p->next = start->next;
             start->next = p;
+            printf("%d inserted after %d in link list\n",data,item);
             return;
         }
     start = start->next;
