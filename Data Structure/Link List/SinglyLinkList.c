@@ -3,7 +3,7 @@
 
 struct node {
     int data;
-    struct node * link; 
+    struct node * next; 
 };
 
 int isNull(struct node *start)
@@ -25,7 +25,7 @@ void PrintLinkList(struct node *start)
     while (start != NULL)
     {
         printf("%d --> ",start->data);
-        start=start->link;
+        start=start->next;
     }
 }
 
@@ -34,7 +34,7 @@ struct node* InsertBegining(struct node *start, int data)
     // time complexity : O(1)
     struct node *p=(struct node *) malloc(sizeof(struct node));
     p->data = data;
-    p->link = start;
+    p->next = start;
     return p;
 }
 
@@ -43,16 +43,16 @@ struct node * InsertEnd(struct node *start,int data)
     // time complexity : O(n)
     struct node *p=(struct node *)malloc(sizeof(struct node)),*last=start;
     p->data=data;
-    p->link=NULL;
+    p->next=NULL;
     if (isNull(last))
     {
         return p;
     }
-    while(last->link != NULL)
+    while(last->next != NULL)
     {
-        last=last->link;
+        last=last->next;
     }
-    last->link=p;
+    last->next=p;
     return start;
 }
 
@@ -63,11 +63,11 @@ struct node * InsertAtIndex(struct node *start,int data,int index)
     int i=0;
     while( i < index )
     {
-        temp=temp->link;
+        temp=temp->next;
         i++;
     }
-    p->link = temp->link;
-    temp->link = p;
+    p->next = temp->next;
+    temp->next = p;
     return start;
 }
 
@@ -79,20 +79,20 @@ void AddAfter(struct node *start,int data,int item)
         {
             struct node *p = (struct node *) malloc(sizeof(struct node));
             p->data = data;
-            p->link = start->link;
-            start->link = p;
+            p->next = start->next;
+            start->next = p;
             return;
         }
-    start = start->link;
+    start = start->next;
     }
     printf("%d element not found in Link List",item);
     return;
 }
 
-struct node * AddBefore(struct node *start,int data,int item)
-{
+// struct node * AddBefore(struct node *start,int data,int item)
+// {
 
-}
+// }
 
 struct node * Reverse(struct node *start)
 {
@@ -100,8 +100,8 @@ struct node * Reverse(struct node *start)
 
     while ( current != NULL)
     {
-        next = current->link;
-        current->link = prev ; 
+        next = current->next;
+        current->next = prev ; 
         prev = current;
         current = next;
     }
@@ -154,13 +154,13 @@ int main()
             scanf("%d",&item);
             AddAfter(start,data,item);
             break;
-        case 6:
-            printf("Enter Data : ");
-            scanf("%d",&data);
-            printf("Enter Item before which node to be inserted : ");
-            scanf("%d",&item);
-            start = AddBefore(start,data,item);
-            break; 
+        // case 6:
+        //     printf("Enter Data : ");
+        //     scanf("%d",&data);
+        //     printf("Enter Item before which node to be inserted : ");
+        //     scanf("%d",&item);
+        //     start = AddBefore(start,data,item);
+        //     break; 
         case 7:
             start = Reverse(start);  
             break;         
