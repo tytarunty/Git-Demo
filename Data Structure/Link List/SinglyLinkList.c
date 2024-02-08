@@ -138,6 +138,44 @@ struct node * Reverse(struct node *start)
     return prev;
 }
 
+struct node * DelBegining(struct node *start)
+{
+    if (start == NULL)
+    {
+        printf("Empty link list\n");
+        return start;
+    }
+
+    struct node *temp=start;
+    start = start->next;
+    free(temp);
+    return start;
+}
+
+struct node * DelEnd(struct node *start)
+{
+    if (start == NULL)
+    {
+        printf("Empty link list\n");
+        return start;
+    }
+
+    struct node *temp=start;
+
+    if (temp->next == NULL) // if only one node in link list
+    {
+        free(temp);
+        return NULL;
+    }
+
+    while( temp->next->next != NULL) // point to second last node
+        temp = temp->next;
+    free(temp->next);
+    temp->next = NULL;
+    return start;
+}
+
+
 int main()
 {
     struct node *start=NULL;
@@ -152,6 +190,8 @@ int main()
         printf("5. Insert after node\n");
         printf("6. Insert before node\n");
         printf("7. Reverse Link List\n");
+        printf("8. Delete from begining\n");
+        printf("9. Delete from end\n");
         printf("10. Exit\n");
         scanf("%d",&choice);
         switch (choice)
@@ -193,7 +233,13 @@ int main()
             break; 
         case 7:
             start = Reverse(start);  
-            break;         
+            break;
+        case 8:
+            start = DelBegining(start);  
+            break; 
+        case 9:
+            start = DelEnd(start);  
+            break;            
         case 10:
             exit(0);
             break;
