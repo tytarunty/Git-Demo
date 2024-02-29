@@ -17,15 +17,10 @@ void swap(int *first, int *second)
 void BubbleSort(int arr[],int size)
 {
     for ( int pass = 0 ; pass < size-1 ; pass++)
-    {
         for ( int i = 0 ; i < size-1-pass ; i++)
-        {
             if ( arr[i] > arr[i+1] )
-            {
                 swap(&arr[i], &arr[i+1]);
-            }
-        }
-    }
+
 }
 
 int main()
