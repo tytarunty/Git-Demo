@@ -163,7 +163,6 @@ struct node *DelEnd(struct node *start)
     temp->prev->next = NULL;
     free(temp);
     return start;
-    
 }
 
 int main()
