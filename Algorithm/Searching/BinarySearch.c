@@ -2,9 +2,10 @@
 
 int LinearSearch(int arr[] ,int l, int r, int item)
 {
-    while ( l < r )
+    while ( l <= r )
     {    
         int mid = (l+r)/2;
+        //int mid = l + (r-l)/2;
         printf("MID : %d\n",mid);
         if ( item == arr[mid])
             return 1;
