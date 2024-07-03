@@ -1,2 +1,0 @@
-1. (Fibonacchi.c) Fibonacci Series : The Fibonacci sequence is a type series where each number is the sum of the two that precede it. It starts from 0 and 1 usually. The Fibonacci sequence is given by 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, and so on. 
-2. (SumOfDigits.c) WAP to sum all the elements of an array.
