@@ -1,6 +1,21 @@
 #include<stdio.h>
 
-// QUEUE functions
+/* Graph
+    0 ----- 1
+    | \     |
+    |   \   |
+    |     \ |
+    3-------2
+     \     /
+      \   /
+        4
+      /   \
+     /      \
+    5        6
+*/
+
+
+// ###################  QUEUE Implementation START ###################
 #define MAX 100
 int queue[MAX],front = -1, rear = -1;
 
@@ -44,8 +59,7 @@ int dequeue()
     front++;
     return temp;
 }
-// QUEUE functions end
-
+// ###################  QUEUE Implementation END ###################
 
 int main()
 {
