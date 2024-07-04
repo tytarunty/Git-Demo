@@ -84,6 +84,10 @@ void InsertEdge(int u, int v)
     temp->nextEdge = newEdge;  //update nextEdge of last node link list to newly created edge
 }
 
+void DeleteVertex(int u)
+{
+}
+
 void Display(void)
 {
     struct Vertex *vertex;
@@ -138,6 +142,11 @@ int main()
                 printf("Enter Destination : ");
                 scanf("%d",&destination);
                 InsertEdge(source,destination);
+                break;
+            case 3 :
+                printf("Enter Vertex to be deleted : ");
+                scanf("%d",&u);
+                DeleteVertex(u);
                 break;
             case 5 : 
                 Display();
