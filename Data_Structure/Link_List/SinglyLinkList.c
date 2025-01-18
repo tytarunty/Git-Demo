@@ -175,6 +175,33 @@ struct node * DelEnd(struct node *start)
     return start;
 }
 
+struct node * DelItem(struct node *start,int item)
+{
+    if (start == NULL)
+    {
+        printf("Empty link list\n");
+        return start;
+    }
+
+    struct node *temp=start;
+    if (temp->data == item){
+        struct node *p = temp->next;
+        free(temp);
+        start = p;
+    }
+    while ( temp->next != NULL){
+        printf("item : %d\n",temp->data);
+        if (temp->next->data == item){
+            struct node *p = temp->next->next;
+            free(temp->next);
+            temp->next = p;
+            // return start;
+        }
+        if ( temp->next != NULL)
+            temp = temp->next;
+    }
+    return start;
+}
 
 int main()
 {
@@ -192,7 +219,8 @@ int main()
         printf("7. Reverse Link List\n");
         printf("8. Delete from begining\n");
         printf("9. Delete from end\n");
-        printf("10. Exit\n");
+        printf("10. Delete item\n");
+        printf("11. Exit\n");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -239,8 +267,13 @@ int main()
             break; 
         case 9:
             start = DelEnd(start);  
-            break;            
+            break; 
         case 10:
+            printf("Enter item to be deleted\n");
+            scanf("%d",&item);
+            start = DelItem(start,item);  
+            break;            
+        case 11:
             exit(0);
             break;
         default:
