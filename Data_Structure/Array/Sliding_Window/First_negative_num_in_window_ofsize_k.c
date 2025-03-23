@@ -19,10 +19,9 @@ Output:
 #include<stdio.h>
 #include<limits.h>
 
-int max_sum = INT_MIN;
 int neg_arr[7] = {0};
 
-int slidingwindow(int arr[],int size, int k){
+void slidingwindow(int arr[],int size, int k){
 	int i=0,j=0,f=0,r=0;
 	int sum = 0;
 	while(j<size){
@@ -45,7 +44,6 @@ int slidingwindow(int arr[],int size, int k){
 		}
         
 	}
-	return max_sum;
 }
 
 int main(){
