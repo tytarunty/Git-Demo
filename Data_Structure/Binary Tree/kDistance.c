@@ -69,7 +69,7 @@ int main()
     p9->left  = NULL;
     p9->right = NULL;
 
-    printKDistant(p1,1);
+    printKDistant(p1,2);
     printf("\n");
     return 0;
 }

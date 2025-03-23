@@ -11,9 +11,17 @@ struct node* CreateNode(int data);
 void PreOrderTraversal(struct node *root);
 void PostOrderTraversal(struct node *root);
 void InOrderTraversal(struct node *root);
+struct node{
+    int a=10;
+    int b=5;
+    int c=3;
+}var;
 
+printf("A = %d, B = %d, C = %d\n",var.1,var.b,var.c);
 int main()
 {
+    int a = 600000;
+    printf("ANS : %f\n",3/2.0);
     struct node *p=CreateNode(4);
     struct node *p1=CreateNode(1);
     struct node *p2=CreateNode(6);
